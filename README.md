@@ -1,0 +1,1 @@
+# i3-named-space-script
