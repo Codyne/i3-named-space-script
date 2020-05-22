@@ -3,6 +3,8 @@ add i3-nws to /usr/local/bin or wherever
 
 then add the keybind to call it from i3 config
 
+requires jq
+
 ie
 
 `bindsym $mod+m exec --no-startup-id i3-nws switch`
