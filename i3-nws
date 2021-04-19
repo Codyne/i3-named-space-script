@@ -1,7 +1,9 @@
 #!/bin/bash
-cur="i3-msg -t get_workspaces | jq '.[] | select(.focused==false).name' | cut -d \"\\\"\" -f2 | sort -n | dmenu -p 'Workspace'"
-case $1 in
-    move)  i3-msg move workspace $(eval $cur) ;;
-    switch) i3-msg workspace $(eval $cur) ;;
-    *) echo -e "Options\n\tmove - move the focused container to a workspace\n\tswitch - switch the current workspace to the input" ;;
-esac
+function i3_named_space_manage {
+    cur="i3-msg -t get_workspaces | jq '.[] | select(.focused==false).name' | cut -d \"\\\"\" -f2 | sort -n | dmenu -p 'Workspace'"
+    case $1 in
+        move)  i3-msg move workspace $(eval $cur) ;;
+        switch) i3-msg workspace $(eval $cur) ;;
+        *) echo -e "Options\n\tmove - move the focused container to a workspace\n\tswitch - switch the current workspace to the input" ;;
+    esac
+}
